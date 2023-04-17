@@ -21,5 +21,15 @@ class ListNode(var `val`: Int) {
 }
 
 fun isPalindrome(head: ListNode?): Boolean {
-    return true
+    var ptr: ListNode? = head
+    var number: String = ""
+    while (ptr != null) {
+        number += ptr.`val`
+        ptr = ptr.next
+    }
+
+    if (number == number.reversed())
+        return true
+
+    return false
 }
