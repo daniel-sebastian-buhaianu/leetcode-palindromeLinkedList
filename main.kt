@@ -28,8 +28,16 @@ fun isPalindrome(head: ListNode?): Boolean {
         ptr = ptr.next
     }
 
-    if (number == number.reversed())
-        return true
+    val mid: Int = number.length / 2
+    var i = 0
+    var j = number.length - 1
+    var end = if (number.length % 2 == 0) mid else mid+1
+    while (i < mid && j >= end) {
+        if (number[i] != number[j])
+            return false
+        i++
+        j--
+    }
 
-    return false
+    return true
 }
